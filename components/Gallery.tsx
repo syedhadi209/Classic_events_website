@@ -2,11 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const images = [
-  { src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop", span: "md:col-span-1 md:row-span-1" },
-  { src: "https://images.unsplash.com/photo-1519225468359-6963297911d4?q=80&w=2070&auto=format&fit=crop", span: "md:col-span-1 md:row-span-2" },
-  { src: "https://images.unsplash.com/photo-1464349153735-7db50ed83c84?q=80&w=2070&auto=format&fit=crop", span: "md:col-span-1 md:row-span-1" },
-  { src: "https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=2070&auto=format&fit=crop", span: "md:col-span-2 md:row-span-1" },
-  { src: "https://images.unsplash.com/photo-1520854221256-17451cc330e7?q=80&w=2070&auto=format&fit=crop", span: "md:col-span-1 md:row-span-1" },
+  { src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop", span: "md:col-span-1 md:row-span-1" },
+  { src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop", span: "md:col-span-1 md:row-span-2" },
+  { src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop", span: "md:col-span-1 md:row-span-1" },
+  { src: "https://images.unsplash.com/photo-1464349153735-7db50ed83c84?q=80&w=2070&auto=format&fit=crop", span: "md:col-span-2 md:row-span-1" },
+  { src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop", span: "md:col-span-1 md:row-span-1" },
 ];
 
 export const Gallery: React.FC = () => {

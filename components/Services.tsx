@@ -7,13 +7,13 @@ const services: Service[] = [
     id: 1,
     title: "Wedding Events",
     description: "We provide complete planning and décor services for Mehndi, Mayon, Barat, and Walima events, ensuring every moment is beautifully organized and perfectly executed.",
-    image: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1705058718118-80cadb3e9f4c?q=80&w=822&auto=format&fit=crop"
   },
   {
     id: 2,
     title: "Birthday Parties",
     description: "We offer complete planning and décor services for birthday parties, ensuring a fun, well-organized, and unforgettable event.",
-    image: "https://images.unsplash.com/photo-1558636508-e0db3814bd1d?q=80&w=2070&auto=format&fit=crop"
+    image: "https://plus.unsplash.com/premium_photo-1691688119444-e7d321e3087a?q=80&w=776&auto=format&fit=crop"
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ const services: Service[] = [
     id: 4,
     title: "Concerts",
     description: "We create high-energy concert experiences with powerful staging, seamless coordination, and impactful crowd engagement.",
-    image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop"
   },
   {
     id: 5,

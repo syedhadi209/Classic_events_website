@@ -39,7 +39,7 @@ export const Hero: React.FC = () => {
       {/* Content */}
       <motion.div 
         style={{ opacity }}
-        className="relative z-10 text-center px-6 max-w-4xl mx-auto"
+        className="relative z-10 text-center px-6 max-w-4xl mx-auto flex flex-col items-center"
       >
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
@@ -50,14 +50,18 @@ export const Hero: React.FC = () => {
           Est. 2009 • Pakistan
         </motion.p>
         
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-serif text-slate-100 mb-4 leading-tight"
+          className="mb-8 w-full flex justify-center"
         >
-          Curating Moments of <br/> <span className="italic text-luxury-sand">Timeless Elegance</span>
-        </motion.h1>
+            <img 
+                src="https://res.cloudinary.com/drlfxmpin/image/upload/v1765639428/logo_faflps.png" 
+                alt="Classic Events" 
+                className="w-full max-w-[200px] md:max-w-[280px] h-auto object-contain drop-shadow-xl"
+            />
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}

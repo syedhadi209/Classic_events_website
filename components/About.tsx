@@ -48,15 +48,31 @@ export const About: React.FC = () => {
               </p>
             </Reveal>
             <Reveal delay={0.6}>
-              <div className="flex items-center space-x-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200" 
-                  alt="Founder" 
-                  className="w-12 h-12 rounded-full object-cover border border-luxury-champagne/50"
-                />
-                <div>
-                  <p className="text-slate-200 font-serif italic">Arif Hussain</p>
-                  <p className="text-luxury-champagne text-xs uppercase tracking-wider">Founder & CEO</p>
+              <div className="flex flex-col sm:flex-row gap-8 pt-4">
+                {/* Founder & CEO */}
+                <div className="flex items-center space-x-4">
+                  <img 
+                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200" 
+                    alt="Arif Hussain" 
+                    className="w-14 h-14 rounded-full object-cover border border-luxury-champagne/50"
+                  />
+                  <div>
+                    <p className="text-slate-200 font-serif italic text-lg">Arif Hussain</p>
+                    <p className="text-luxury-champagne text-[10px] uppercase tracking-widest font-medium">Founder & CEO</p>
+                  </div>
+                </div>
+
+                {/* Co-Founder & COO */}
+                <div className="flex items-center space-x-4">
+                  <img 
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200" 
+                    alt="Abid Hussain" 
+                    className="w-14 h-14 rounded-full object-cover border border-luxury-champagne/50"
+                  />
+                  <div>
+                    <p className="text-slate-200 font-serif italic text-lg">Abid Hussain</p>
+                    <p className="text-luxury-champagne text-[10px] uppercase tracking-widest font-medium">Co-Founder & COO</p>
+                  </div>
                 </div>
               </div>
             </Reveal>

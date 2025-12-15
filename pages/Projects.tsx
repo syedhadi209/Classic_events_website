@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Reveal } from '../components/ui/Reveal';
 import { ImageWithLoader } from '../components/ui/ImageWithLoader';
@@ -34,10 +34,26 @@ const allProjects = [
   { id: 28, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1764781335/banner_yfbbvf.jpg", title: "Aerial View", category: "Overview" },
 ];
 
+const categories = [
+  "Highlights",
+  "Mehndi",
+  "Barat",
+  "Walima",
+  "Dance Floors",
+  "Corporate Events"
+];
+
 export const Projects: React.FC = () => {
+  const [activeTab, setActiveTab] = useState("Highlights");
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Filter logic: "Highlights" shows all, others show first 5 as placeholders
+  const displayedProjects = activeTab === "Highlights" 
+    ? allProjects 
+    : allProjects.slice(0, 5);
 
   return (
     <section className="pt-32 pb-24 bg-slate-950 min-h-screen relative">
@@ -45,7 +61,7 @@ export const Projects: React.FC = () => {
       <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-slate-900 to-slate-950 z-0" />
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <Reveal>
             <h4 className="text-luxury-champagne text-sm uppercase tracking-[0.2em] mb-4">Our Portfolio</h4>
           </Reveal>
@@ -61,10 +77,27 @@ export const Projects: React.FC = () => {
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {allProjects.map((project, idx) => (
+        {/* Tab Navigation */}
+        <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-16 px-4">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveTab(category)}
+              className={`text-sm uppercase tracking-widest pb-2 transition-all duration-300 border-b-2 ${
+                activeTab === category
+                  ? 'text-luxury-champagne border-luxury-champagne'
+                  : 'text-slate-500 border-transparent hover:text-slate-300'
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[500px]">
+          {displayedProjects.map((project, idx) => (
             <motion.div
-              key={project.id}
+              key={`${activeTab}-${project.id}`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: (idx % 3) * 0.1, duration: 0.5 }}

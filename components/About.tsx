@@ -49,7 +49,7 @@ export const About: React.FC = () => {
             </Reveal>
             <Reveal delay={0.6}>
               <div className="flex flex-col sm:flex-row gap-8 pt-4">
-                {/* Founder & CEO */}
+                {/* Arif Hussain */}
                 <div className="flex items-center space-x-4">
                   <img 
                     src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200" 
@@ -58,11 +58,11 @@ export const About: React.FC = () => {
                   />
                   <div>
                     <p className="text-slate-200 font-serif italic text-lg">Arif Hussain</p>
-                    <p className="text-luxury-champagne text-[10px] uppercase tracking-widest font-medium">Founder & CEO</p>
+                    <p className="text-luxury-champagne text-[10px] uppercase tracking-widest font-medium">Operation Director</p>
                   </div>
                 </div>
 
-                {/* Co-Founder & COO */}
+                {/* Abid Hussain */}
                 <div className="flex items-center space-x-4">
                   <img 
                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200" 
@@ -71,7 +71,7 @@ export const About: React.FC = () => {
                   />
                   <div>
                     <p className="text-slate-200 font-serif italic text-lg">Abid Hussain</p>
-                    <p className="text-luxury-champagne text-[10px] uppercase tracking-widest font-medium">Co-Founder & COO</p>
+                    <p className="text-luxury-champagne text-[10px] uppercase tracking-widest font-medium">Execution Director</p>
                   </div>
                 </div>
               </div>

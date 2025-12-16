@@ -17,9 +17,23 @@ export const Contact: React.FC = () => {
 
             <div className="space-y-8">
               <div>
-                <h6 className="text-white uppercase tracking-widest text-sm mb-2">Phone No#</h6>
-                <p className="text-slate-400 font-light text-lg">+92 228 402007</p>
-                <p className="text-slate-400 font-light text-lg">+92 00-8402005</p>
+                <h6 className="text-white uppercase tracking-widest text-sm mb-2">Phone No# (WhatsApp)</h6>
+                <a 
+                  href="https://wa.me/923228402007" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="block text-slate-400 font-light text-lg hover:text-luxury-champagne transition-colors w-fit"
+                >
+                  +92 322-8402007
+                </a>
+                <a 
+                  href="https://wa.me/923008402005" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="block text-slate-400 font-light text-lg hover:text-luxury-champagne transition-colors w-fit"
+                >
+                  +92 300-8402005
+                </a>
               </div>
               <div>
                 <h6 className="text-white uppercase tracking-widest text-sm mb-2">Email</h6>

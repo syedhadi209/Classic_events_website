@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play } from 'lucide-react';
+import { Play, Pause } from 'lucide-react';
 import { Reveal } from './ui/Reveal';
 
 export const VideoSection: React.FC = () => {
@@ -8,9 +8,13 @@ export const VideoSection: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handlePlay = () => {
-    setIsPlaying(true);
     if (videoRef.current) {
-      videoRef.current.play();
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
     }
   };
 
@@ -18,76 +22,96 @@ export const VideoSection: React.FC = () => {
     <section className="py-24 bg-slate-900 relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-luxury-champagne/20 to-transparent" />
-      <div className="absolute -left-20 top-1/2 w-64 h-64 bg-luxury-champagne/5 rounded-full blur-[100px]" />
-      <div className="absolute -right-20 bottom-1/2 w-64 h-64 bg-luxury-champagne/5 rounded-full blur-[100px]" />
+      <div className="absolute -left-20 top-1/2 w-64 h-64 bg-luxury-champagne/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -right-20 bottom-1/2 w-64 h-64 bg-luxury-champagne/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <Reveal>
-            <h4 className="text-luxury-champagne text-sm uppercase tracking-[0.2em] mb-4">
-              Cinematic Experience
-            </h4>
-          </Reveal>
-          <Reveal delay={0.3}>
-            <h2 className="text-3xl md:text-5xl font-serif text-slate-100 mb-6">
-              Relive the <span className="italic text-luxury-sand">Magic</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={0.4}>
-            <p className="text-slate-400 font-light text-lg">
-              Witness the artistry and emotion of our curated events through motion.
-            </p>
-          </Reveal>
-        </div>
-
-        <Reveal delay={0.5}>
-          <div className="relative w-full max-w-5xl mx-auto aspect-video group">
+        <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
+          
+          {/* Text Content - Left Side */}
+          <div className="w-full lg:w-1/2 order-2 lg:order-1 pt-8">
+            <Reveal>
+              <h4 className="text-luxury-champagne text-sm uppercase tracking-[0.2em] mb-4">
+                Client Stories
+              </h4>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <h2 className="text-4xl md:text-5xl font-serif text-slate-100 mb-6 leading-tight">
+                Moments of <span className="italic text-luxury-sand">Joy</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.3}>
+              <p className="text-slate-400 font-light text-lg mb-8 leading-relaxed">
+                Hear directly from our wonderful clients about their journey with Classic Events. 
+                We take pride in turning visions into reality, ensuring every detail exceeds expectations 
+                and creates memories that last a lifetime.
+              </p>
+            </Reveal>
             
-            {/* Outer Glow/Border */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-luxury-champagne/20 to-slate-800/50 rounded-lg blur opacity-50 group-hover:opacity-100 transition duration-1000"></div>
-            
-            <div className="relative w-full h-full rounded-lg overflow-hidden bg-slate-950 border border-white/10 shadow-2xl">
-              <video
-                ref={videoRef}
-                className="w-full h-full object-cover"
-                controls={isPlaying}
-                poster="https://images.unsplash.com/photo-1519225421980-715cb0202128?q=80&w=2000&auto=format&fit=crop"
-                onPause={() => setIsPlaying(false)}
-                onEnded={() => setIsPlaying(false)}
-              >
-                {/* Dummy Stock Footage of a Wedding/Event */}
-                <source src="https://videos.pexels.com/video-files/5533802/5533802-hd_1920_1080_25fps.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-
-              {/* Custom Play Overlay */}
-              <AnimatePresence>
-                {!isPlaying && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="absolute inset-0 bg-slate-950/60 backdrop-blur-[2px] flex flex-col items-center justify-center cursor-pointer group/btn"
+            <Reveal delay={0.4}>
+              <div className="flex items-center gap-6">
+                 <button 
                     onClick={handlePlay}
-                  >
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-20 h-20 md:w-24 md:h-24 rounded-full border border-luxury-champagne/50 flex items-center justify-center bg-luxury-champagne/10 backdrop-blur-md group-hover/btn:bg-luxury-champagne group-hover/btn:border-transparent transition-all duration-500"
-                    >
-                      <Play 
-                        className="w-8 h-8 md:w-10 md:h-10 text-luxury-champagne group-hover/btn:text-slate-900 ml-1 transition-colors duration-500" 
-                        fill="currentColor" 
-                      />
-                    </motion.div>
-                    <h3 className="mt-6 text-xl font-serif text-slate-200 tracking-wider">Watch Highlights</h3>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+                    className="group flex items-center gap-4 focus:outline-none"
+                 >
+                    <div className={`w-14 h-14 rounded-full border border-luxury-champagne flex items-center justify-center transition-all duration-300 ${isPlaying ? 'bg-luxury-champagne text-slate-900' : 'text-luxury-champagne group-hover:bg-luxury-champagne group-hover:text-slate-900'}`}>
+                       {isPlaying ? <Pause size={24} fill="currentColor" /> : <Play size={24} fill="currentColor" className="ml-1" />}
+                    </div>
+                    <span className="text-sm uppercase tracking-widest text-slate-300 group-hover:text-white transition-colors">
+                      {isPlaying ? 'Pause Review' : 'Watch Review'}
+                    </span>
+                 </button>
+              </div>
+            </Reveal>
           </div>
-        </Reveal>
+
+          {/* Video Content - Right Side */}
+          <div className="w-full lg:w-1/2 order-1 lg:order-2 flex justify-center lg:justify-end">
+             <Reveal delay={0.2} width="fit-content">
+                <div className="relative group">
+                   {/* Decorative Frame */}
+                   <div className="absolute -bottom-6 -right-6 w-32 h-32 border-r border-b border-luxury-champagne/30 -z-10 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2" />
+                   <div className="absolute -top-6 -left-6 w-32 h-32 border-l border-t border-luxury-champagne/30 -z-10 transition-transform duration-500 group-hover:-translate-x-2 group-hover:-translate-y-2" />
+                   
+                   {/* Video Container - Portrait Ratio (9:16) */}
+                   <div className="relative w-[300px] sm:w-[350px] aspect-[9/16] bg-slate-950 overflow-hidden shadow-2xl border border-white/10">
+                      <video
+                        ref={videoRef}
+                        className={`w-full h-full object-cover transition-all duration-700 ${isPlaying ? 'opacity-100 blur-0' : 'opacity-90 blur-sm group-hover:opacity-100'}`}
+                        playsInline
+                        loop
+                        poster="https://res.cloudinary.com/drlfxmpin/video/upload/so_0/v1765885193/Client_Review_Video_wxqwq6.jpg"
+                        onEnded={() => setIsPlaying(false)}
+                      >
+                         <source src="https://res.cloudinary.com/drlfxmpin/video/upload/v1765885193/Client_Review_Video_wxqwq6.mp4" type="video/mp4" />
+                      </video>
+
+                      {/* Video Overlay / Play Button */}
+                      <AnimatePresence>
+                        {!isPlaying && (
+                          <motion.div
+                             initial={{ opacity: 0 }}
+                             animate={{ opacity: 1 }}
+                             exit={{ opacity: 0 }}
+                             className="absolute inset-0 bg-slate-950/40 backdrop-blur-[1px] flex items-center justify-center cursor-pointer"
+                             onClick={handlePlay}
+                          >
+                             <motion.div 
+                               whileHover={{ scale: 1.1 }}
+                               whileTap={{ scale: 0.95 }}
+                               className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md border border-white/30 flex items-center justify-center shadow-lg"
+                             >
+                                <Play size={32} className="text-white ml-1" fill="currentColor" />
+                             </motion.div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                   </div>
+                </div>
+             </Reveal>
+          </div>
+
+        </div>
       </div>
     </section>
   );

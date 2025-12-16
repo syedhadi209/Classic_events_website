@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
 import { Projects } from './pages/Projects';
+import { WhatsAppButton } from './components/WhatsAppButton';
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
           </Routes>
         </main>
         <Footer />
+        <WhatsAppButton />
       </div>
     </HashRouter>
   );

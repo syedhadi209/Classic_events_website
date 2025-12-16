@@ -4,11 +4,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const navItems = [
-  { label: 'Home', href: 'hero' },
-  { label: 'About', href: 'about' },
-  { label: 'Services', href: 'services' },
-  { label: 'Gallery', href: 'gallery' },
-  { label: 'Contact', href: 'contact' },
+  { label: 'Home', href: 'hero', isRoute: false },
+  { label: 'About', href: 'about', isRoute: false },
+  { label: 'Services', href: 'services', isRoute: false },
+  { label: 'Gallery', href: '/projects', isRoute: true },
+  { label: 'Contact', href: 'contact', isRoute: false },
 ];
 
 export const Navbar: React.FC = () => {
@@ -25,9 +25,17 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, item: typeof navItems[0]) => {
     e.preventDefault();
     setMobileMenuOpen(false);
+    
+    if (item.isRoute) {
+        navigate(item.href);
+        window.scrollTo(0, 0);
+        return;
+    }
+
+    const id = item.href;
     
     if (location.pathname !== '/') {
       navigate('/');
@@ -58,7 +66,7 @@ export const Navbar: React.FC = () => {
         {/* Logo */}
         <a 
           href="#hero" 
-          onClick={(e) => handleScrollTo(e, 'hero')}
+          onClick={(e) => handleNavigation(e, { label: 'Home', href: 'hero', isRoute: false })}
           className="z-50 relative"
         >
           <h1 className="text-2xl md:text-3xl font-serif text-luxury-champagne tracking-widest font-bold uppercase">
@@ -71,8 +79,8 @@ export const Navbar: React.FC = () => {
           {navItems.map((item) => (
             <a
               key={item.label}
-              href={`#${item.href}`}
-              onClick={(e) => handleScrollTo(e, item.href)}
+              href={item.isRoute ? item.href : `#${item.href}`}
+              onClick={(e) => handleNavigation(e, item)}
               className="text-sm uppercase tracking-widest text-slate-300 hover:text-luxury-champagne transition-colors duration-300 relative group"
             >
               {item.label}
@@ -81,7 +89,7 @@ export const Navbar: React.FC = () => {
           ))}
           <a
             href="#contact"
-            onClick={(e) => handleScrollTo(e, 'contact')}
+            onClick={(e) => handleNavigation(e, { label: 'Contact', href: 'contact', isRoute: false })}
             className="px-6 py-2 border border-luxury-champagne text-luxury-champagne text-sm uppercase tracking-widest hover:bg-luxury-champagne hover:text-slate-950 transition-all duration-300"
           >
             Inquire
@@ -109,8 +117,8 @@ export const Navbar: React.FC = () => {
             {navItems.map((item) => (
               <a
                 key={item.label}
-                href={`#${item.href}`}
-                onClick={(e) => handleScrollTo(e, item.href)}
+                href={item.isRoute ? item.href : `#${item.href}`}
+                onClick={(e) => handleNavigation(e, item)}
                 className="text-2xl font-serif text-slate-300 hover:text-luxury-champagne transition-colors"
               >
                 {item.label}

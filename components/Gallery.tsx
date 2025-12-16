@@ -5,12 +5,12 @@ import { ImageWithLoader } from './ui/ImageWithLoader';
 
 // Selection of 6 highlight projects for the home page
 const featuredProjects = [
-  { id: 1, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639095/WhatsApp_Image_2025-12-05_at_09.51.04_2_tctcuh.jpg", title: "Royal Reception", category: "Wedding" },
-  { id: 2, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639093/WhatsApp_Image_2025-12-05_at_09.51.05_1_kloswz.jpg", title: "Grand Entrance", category: "Decor" },
-  { id: 3, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639093/WhatsApp_Image_2025-12-05_at_09.49.53_2_wbvdui.jpg", title: "Stage Design", category: "Stage" },
-  { id: 4, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639093/WhatsApp_Image_2025-12-05_at_09.51.04_nbu3aq.jpg", title: "Evening Gala", category: "Corporate" },
-  { id: 5, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639091/WhatsApp_Image_2025-12-05_at_09.49.52_qfdntx.jpg", title: "Table Setting", category: "Dining" },
-  { id: 6, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639091/WhatsApp_Image_2025-12-05_at_09.49.53_3_qbatfx.jpg", title: "Luxury Lounge", category: "Setup" },
+  { id: 1, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765779307/WhatsApp_Image_2025-12-13_at_23.08.35_1_fnd47w.jpg", title: "Mehndi", category: "Wedding" },
+  { id: 2, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765779630/WhatsApp_Image_2025-12-13_at_23.08.54_3_zam4fx.jpg", title: "Barat", category: "Wedding" },
+  { id: 3, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765779529/WhatsApp_Image_2025-12-13_at_23.08.48_1_lonjv2.jpg", title: "Walima", category: "Wedding" },
+  { id: 4, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765779429/WhatsApp_Image_2025-12-13_at_23.08.41_2_okca6n.jpg", title: "Dance Floors", category: "Parties" },
+  { id: 5, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765779762/WhatsApp_Image_2025-12-13_at_23.08.58_2_d84ihx.jpg", title: "Corporate Events", category: "Corporate" },
+  { id: 6, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765779738/WhatsApp_Image_2025-12-13_at_23.08.57_2_raqsua.jpg", title: "Musical Nights", category: "Corporate" },
 ];
 
 export const Gallery: React.FC = () => {

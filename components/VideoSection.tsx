@@ -26,10 +26,10 @@ export const VideoSection: React.FC = () => {
       <div className="absolute -right-20 bottom-1/2 w-64 h-64 bg-luxury-champagne/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
+        <div className="max-w-5xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
           
-          {/* Text Content - Left Side */}
-          <div className="w-full lg:w-1/2 order-2 lg:order-1 pt-8">
+          {/* Text Content */}
+          <div className="w-full lg:w-1/2 order-2 lg:order-1">
             <Reveal>
               <h4 className="text-luxury-champagne text-sm uppercase tracking-[0.2em] mb-4">
                 Client Stories
@@ -65,8 +65,8 @@ export const VideoSection: React.FC = () => {
             </Reveal>
           </div>
 
-          {/* Video Content - Right Side */}
-          <div className="w-full lg:w-1/2 order-1 lg:order-2 flex justify-center lg:justify-end">
+          {/* Video Content */}
+          <div className="w-full lg:w-1/2 order-1 lg:order-2 flex justify-center">
              <Reveal delay={0.2} width="fit-content">
                 <div className="relative group">
                    {/* Decorative Frame */}
@@ -74,7 +74,7 @@ export const VideoSection: React.FC = () => {
                    <div className="absolute -top-6 -left-6 w-32 h-32 border-l border-t border-luxury-champagne/30 -z-10 transition-transform duration-500 group-hover:-translate-x-2 group-hover:-translate-y-2" />
                    
                    {/* Video Container - Portrait Ratio (9:16) */}
-                   <div className="relative w-[300px] sm:w-[350px] aspect-[9/16] bg-slate-950 overflow-hidden shadow-2xl border border-white/10">
+                   <div className="relative w-[280px] sm:w-[320px] aspect-[9/16] bg-slate-950 overflow-hidden shadow-2xl border border-white/10">
                       <video
                         ref={videoRef}
                         className={`w-full h-full object-cover transition-all duration-700 ${isPlaying ? 'opacity-100 blur-0' : 'opacity-90 blur-sm group-hover:opacity-100'}`}

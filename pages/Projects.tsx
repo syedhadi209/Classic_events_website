@@ -3,37 +3,6 @@ import { motion } from 'framer-motion';
 import { Reveal } from '../components/ui/Reveal';
 import { ImageWithLoader } from '../components/ui/ImageWithLoader';
 
-const highlightProjects = [
-  { id: 1, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639095/WhatsApp_Image_2025-12-05_at_09.51.04_2_tctcuh.jpg", title: "Royal Reception", category: "Wedding" },
-  { id: 2, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639093/WhatsApp_Image_2025-12-05_at_09.51.05_1_kloswz.jpg", title: "Grand Entrance", category: "Decor" },
-  { id: 3, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639093/WhatsApp_Image_2025-12-05_at_09.49.53_2_wbvdui.jpg", title: "Stage Design", category: "Stage" },
-  { id: 4, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639092/WhatsApp_Image_2025-12-05_at_09.51.04_1_s28vsn.jpg", title: "Floral Arches", category: "Decor" },
-  { id: 5, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639093/WhatsApp_Image_2025-12-05_at_09.51.04_nbu3aq.jpg", title: "Evening Gala", category: "Corporate" },
-  { id: 6, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639092/WhatsApp_Image_2025-12-05_at_09.49.52_5_u7iclq.jpg", title: "Lighting Ambiance", category: "Lighting" },
-  { id: 7, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639091/WhatsApp_Image_2025-12-05_at_09.49.52_qfdntx.jpg", title: "Table Setting", category: "Dining" },
-  { id: 8, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639091/WhatsApp_Image_2025-12-05_at_09.49.53_3_qbatfx.jpg", title: "Luxury Lounge", category: "Setup" },
-  { id: 9, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639091/WhatsApp_Image_2025-12-05_at_09.49.53_uo265g.jpg", title: "Wedding Hall", category: "Wedding" },
-  { id: 10, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639091/WhatsApp_Image_2025-12-05_at_09.56.08_d5knvi.jpg", title: "Outdoor Elegance", category: "Outdoor" },
-  { id: 11, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639090/WhatsApp_Image_2025-12-05_at_09.49.53_1_ad6f52.jpg", title: "Floral Masterpiece", category: "Decor" },
-  { id: 12, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639089/WhatsApp_Image_2025-12-05_at_09.56.01_vz4pma.jpg", title: "Night of Lights", category: "Event" },
-  { id: 13, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639088/WhatsApp_Image_2025-12-05_at_09.55.45_b2dgex.jpg", title: "Classic Setup", category: "Wedding" },
-  { id: 14, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639087/WhatsApp_Image_2025-12-05_at_09.49.52_4_o8ahoe.jpg", title: "Modern Stage", category: "Stage" },
-  { id: 15, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639088/WhatsApp_Image_2025-12-05_at_09.55.53_sdcgbm.jpg", title: "Golden Theme", category: "Decor" },
-  { id: 16, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639085/WhatsApp_Image_2025-12-05_at_09.48.05_x89dof.jpg", title: "Signature Event", category: "Signature" },
-  { id: 17, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639088/WhatsApp_Image_2025-12-05_at_09.49.52_2_bszc5a.jpg", title: "Velvet Lounge", category: "Setup" },
-  { id: 18, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639088/WhatsApp_Image_2025-12-05_at_09.49.52_3_zlal3e.jpg", title: "Crystal Decor", category: "Details" },
-  { id: 19, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639088/WhatsApp_Image_2025-12-05_at_09.49.52_1_vbvckl.jpg", title: "Walkway of Dreams", category: "Entrance" },
-  { id: 20, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639086/WhatsApp_Image_2025-12-05_at_09.51.05_4_ouy0th.jpg", title: "The Grand Stage", category: "Stage" },
-  { id: 21, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639086/WhatsApp_Image_2025-12-05_at_09.51.05_3_i9cjjk.jpg", title: "Intimate Dinner", category: "Dining" },
-  { id: 22, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639086/WhatsApp_Image_2025-12-05_at_09.51.05_cj7hx2.jpg", title: "Royal Seating", category: "Seating" },
-  { id: 23, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639086/WhatsApp_Image_2025-12-05_at_09.49.51_scgw5k.jpg", title: "Event Lighting", category: "Production" },
-  { id: 24, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639086/WhatsApp_Image_2025-12-05_at_09.49.50_mzkhg0.jpg", title: "Traditional Decor", category: "Wedding" },
-  { id: 25, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639086/WhatsApp_Image_2025-12-05_at_09.51.05_2_obmznb.jpg", title: "Guest Experience", category: "Ambience" },
-  { id: 26, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639085/WhatsApp_Image_2025-12-05_at_09.49.51_1_bxwhz3.jpg", title: "Floral Walkway", category: "Entrance" },
-  { id: 27, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765639085/WhatsApp_Image_2025-12-05_at_09.48.06_eyxfvx.jpg", title: "Luxurious Backdrop", category: "Decor" },
-  { id: 28, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1764781335/banner_yfbbvf.jpg", title: "Aerial View", category: "Overview" },
-];
-
 const mehndiProjects = [
   { id: 101, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765779309/WhatsApp_Image_2025-12-13_at_23.08.37_lcibdx.jpg", title: "Vibrant Celebration", category: "Mehndi" },
   { id: 102, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765779309/WhatsApp_Image_2025-12-13_at_23.08.36_igv3q5.jpg", title: "Colorful Stage", category: "Mehndi" },
@@ -68,8 +37,6 @@ const baratProjects = [
   { id: 215, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765779615/WhatsApp_Image_2025-12-13_at_23.08.52_1_abg4ut.jpg", title: "Stage Lighting", category: "Barat" },
   { id: 216, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765779614/WhatsApp_Image_2025-12-13_at_23.08.51_rzms3z.jpg", title: "Grand Setup", category: "Barat" },
   { id: 217, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765779613/WhatsApp_Image_2025-12-13_at_23.08.51_3_f4voym.jpg", title: "Entrance Flowers", category: "Barat" },
-  { id: 218, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765779612/WhatsApp_Image_2025-12-13_at_23.08.51_2_l4bmqa.jpg", title: "Sofa Detail", category: "Barat" },
-  { id: 219, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765779611/WhatsApp_Image_2025-12-13_at_23.08.51_1_dnzfhf.jpg", title: "Pathway Glow", category: "Barat" },
 ];
 
 const walimaProjects = [
@@ -98,6 +65,8 @@ const walimaProjects = [
   { id: 323, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765779515/WhatsApp_Image_2025-12-13_at_23.08.44_1_rdmqbp.jpg", title: "Detailed Decor", category: "Walima" },
   { id: 324, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765779515/WhatsApp_Image_2025-12-13_at_23.08.43_dcdvj5.jpg", title: "Elegant Evening", category: "Walima" },
   { id: 325, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765779515/WhatsApp_Image_2025-12-13_at_23.08.43_1_ohbzk1.jpg", title: "Memorable Night", category: "Walima" },
+  { id: 326, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765779612/WhatsApp_Image_2025-12-13_at_23.08.51_2_l4bmqa.jpg", title: "Sofa Detail", category: "Walima" },
+  { id: 327, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765779611/WhatsApp_Image_2025-12-13_at_23.08.51_1_dnzfhf.jpg", title: "Pathway Glow", category: "Walima" },
 ];
 
 const danceFloorProjects = [
@@ -140,6 +109,19 @@ const corporateProjects = [
   { id: 519, src: "https://res.cloudinary.com/drlfxmpin/image/upload/v1765779706/WhatsApp_Image_2025-12-13_at_23.08.55_olhedf.jpg", title: "Grand Entrance", category: "Corporate" },
 ];
 
+const highlightProjects = [
+  // 4 from Mehndi
+  mehndiProjects[0], mehndiProjects[2], mehndiProjects[7], mehndiProjects[10],
+  // 4 from Barat
+  baratProjects[0], baratProjects[3], baratProjects[6], baratProjects[15],
+  // 4 from Walima
+  walimaProjects[0], walimaProjects[4], walimaProjects[9], walimaProjects[17],
+  // 4 from Dance Floor
+  danceFloorProjects[0], danceFloorProjects[2], danceFloorProjects[7], danceFloorProjects[13],
+  // 4 from Corporate
+  corporateProjects[0], corporateProjects[3], corporateProjects[8], corporateProjects[18],
+];
+
 const categories = [
   "Highlights",
   "Mehndi",
@@ -165,8 +147,7 @@ export const Projects: React.FC = () => {
       case "Walima": return walimaProjects;
       case "Dance Floors": return danceFloorProjects;
       case "Corporate Events": return corporateProjects;
-      // For other tabs, use first 5 of highlights as placeholders
-      default: return highlightProjects.slice(0, 5);
+      default: return highlightProjects;
     }
   };
 
